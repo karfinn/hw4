@@ -10,5 +10,5 @@ Rails.application.routes.draw do
  get("/logout", { :controller => "sessions", :action => "destroy" })
 
  # Define the root route
- get("/", { :controller => "posts", :action => "index" })
+ get("/", { :controller => "places", :action => "index" })
 end
