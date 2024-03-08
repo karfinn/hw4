@@ -1,11 +1,5 @@
 class EntriesController < ApplicationController
 
-  def show
-    # renders new entry
-    @entry = Entry.find_by({"id" => params["id"]})
-    @place = Place.find_by({"id" => @entry["place_id"]})
-  end
-  
   def new
     # renders new view connected to Place_id
     @place = Place.find_by({ "id" => params["place_id"] })
@@ -19,6 +13,8 @@ class EntriesController < ApplicationController
         @entry["description"] = params["description"]
         @entry["occurred_on"] = params["occurred_on"]
         @entry["place_id"] = params["place_id"]
+        @entry["user_id"] = @current_user["id"]
+        @entry.uploaded_image.attach(params["entry"]["uploaded_image"])
         @entry.save
         redirect_to "/places/#{@entry["place_id"]}"
     else

@@ -6,7 +6,7 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find_by({ "id" => params["id"] })
-    @entry = Entry.where({ "place_id" => @place["id"] })
+    @entry = Entry.where({ "place_id" => @place["id"] , "user_id" => @current_user["id"]})
   end
 
   def new
@@ -21,9 +21,9 @@ class PlacesController < ApplicationController
         @place.save
         redirect_to "/"
       else
-        flash["notice"] = "Login first."
+        flash["notice"] = "Sign-up or Login first."
         redirect_to "/login"
-        end
       end
+    end
   end
 
