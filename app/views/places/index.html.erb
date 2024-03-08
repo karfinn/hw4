@@ -1,12 +1,21 @@
 <h1>Places</h1>
 
-<div class="list-group">
-  <ol>
-    <% for place in @places %>
-      <li><a href="/places/<%= place["id"] %>" class="list-group-item" ><%= place["name"] %></a></li>
-    <% end %>
-  </ol>
-</div>
+<% if @current_user != nil%>
+  <div class="list-group">
+      <ol>
+        <% for place in @places %>
+          <li><a href="/places/<%= place["id"] %>" class="list-group-item" ><%= place["name"] %></a></li>
+        <%end%>
+      </ol>
+      <%else%>
+      <% flash["notice"] = "You must sign in first." %>
+      <% redirect_to "login"%>
+      <%end%>
+   </div>
+
+    
+ 
+
 
 
 <p>
