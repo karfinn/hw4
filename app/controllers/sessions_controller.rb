@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
       redirect_to "/login"
     end
   else
-    flash["notice"] = "Try again."
     redirect_to "/login"
   end
 end
