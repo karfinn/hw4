@@ -23,8 +23,8 @@ class EntriesController < ApplicationController
         redirect_to "/places/#{@entry["place_id"]}"
     else
       flash["notice"] = "Login first."
+      redirect_to "/login"
     end
-    redirect_to "/"
   end
 
   before_action :allow_cors #cross origin...security
