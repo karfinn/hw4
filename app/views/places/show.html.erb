@@ -10,11 +10,9 @@
     <p><%= entry["description"] %></p>
         <% if entry.uploaded_image.attached? %>
         <img src="<%= url_for(entry.uploaded_image) %>" class="img-fluid">
-        <% else %>
-        <%flash["notice"] ="Try again."%>
         <% end %>
     </div>
-<% end %>
+  <% end %>
 </div>
 
 <p>
