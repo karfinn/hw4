@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
       redirect_to "/login"
     end
   else
+    flash["notice"] = "Invalid username or password."
     redirect_to "/login"
   end
 end
