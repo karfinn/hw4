@@ -1,5 +1,7 @@
 <h1>Places</h1>
 
+
+  <% if @current_user != nil%>
   <div class="list-group">
       <ol>
         <% for place in @places %>
@@ -7,6 +9,9 @@
           <%end%>
       </ol>
    </div>
+   <%else%>
+  Please log-in.
+   <%end%>
 
 <p>
   <a href="/places/new">New place</a>

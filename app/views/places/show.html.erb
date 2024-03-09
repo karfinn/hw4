@@ -9,7 +9,7 @@
     <h4><%= entry["occurred_on"] %></h4>
     <p><%= entry["description"] %></p>
         <% if entry.uploaded_image.attached? %>
-        <img src="<%= url_for(entry.uploaded_image) %>" class="img-fluid">
+        <img src="<%= url_for(entry.uploaded_image) %>" class="img-fluid" style="width: 150px; height: 150px;">
         <% end %>
     </div>
   <% end %>
